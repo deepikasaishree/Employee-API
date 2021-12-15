@@ -27,8 +27,6 @@ Route.get('/', async () => {
   return { hello: 'world' }
 })
 
-const val = new CalculationsController()
-const values = new CrudsController()
 const v = new EmployeesController()
 
 Route.group(() => {
@@ -50,16 +48,3 @@ Route.put('/put', values.putDetails)
 Route.patch('/patch', values.patchDetails)
 Route.delete('/delete', values.deleteDetails)
 
-Route.group(() => {
-  Route.get('/', val.getValue)
-  Route.post('/', val.getValue)
-  Route.put('/', val.getValue)
-  Route.patch('/', val.getValue)
-  Route.delete('/', val.getValue)
-})
-  .prefix('/addition')
-  .middleware('auth')
-
-Route.get('/sub', val.getSubValue)
-Route.get('/mul', val.getMulValue)
-Route.get('/div', val.getDivValue)
